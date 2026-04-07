@@ -2,6 +2,14 @@
 
 A collection of lightweight macOS menu bar apps built with Swift.
 
+## ⚠️ Privacy Notice
+
+**ClipBoard** saves your entire clipboard history (including passwords, API keys, etc.) to a local SQLite file.
+The file is restricted to your user account only (`chmod 600`). Do not use on shared computers.
+Location: `~/.local/share/clipboard/clips.db`
+
+**TranslateBar** sends your text to Google's servers for translation. Avoid translating sensitive information.
+
 ## Apps
 
 ### 📋 ClipBoard — Clipboard Manager

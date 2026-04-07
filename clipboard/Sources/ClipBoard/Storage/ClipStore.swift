@@ -98,6 +98,11 @@ final class ClipStore: ObservableObject {
         if sqlite3_open(path, &db) != SQLITE_OK {
             print("ClipStore: failed to open database at \(path)")
         }
+        // Restrict file to owner-only (rw-------)
+        try? FileManager.default.setAttributes(
+            [.posixPermissions: 0o600],
+            ofItemAtPath: path
+        )
     }
 
     private func createSchema() {

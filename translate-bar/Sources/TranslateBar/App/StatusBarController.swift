@@ -49,8 +49,10 @@ final class StatusBarController: NSObject {
 
     private func close() {
         // Save current URL so language pair is remembered next time
-        if let url = webView?.url?.absoluteString, url.contains("translate.google") {
-            lastURL = url
+        if let url = webView?.url,
+           url.scheme == "https",
+           url.host?.hasSuffix("translate.google.com") == true {
+            lastURL = url.absoluteString
         }
         panel?.orderOut(nil)
         stopGlobalMonitor()
